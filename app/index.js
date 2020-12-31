@@ -23,11 +23,14 @@ app.get('/api/:id', async (req, res) => {
   try {
     const url = await urls.findOne({ slug });
     if (url) {
-      res.end(url.url);
+      res.redirect(url.url);
+      res.next();
     }
-    res.end(`/?error=${slug} not found`);
+    res.redirect(`/?error=${slug} not found`);
+    res.next();
   } catch (error) {
-    res.end(`/?error=Link not found`);
+    res.redirect(`/?error=Link not found`);
+    res.next();
   }
 });
 
