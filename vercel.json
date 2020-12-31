@@ -18,6 +18,18 @@
       "dest": "ui/index.html"
     },
     {
+      "src": "/parallelowow.js",
+      "dest": "ui/parallelowow.html"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "ui/styles.css"
+    },
+    {
+      "src": "/app.js",
+      "dest": "ui/app.js"
+    },
+    {
       "src": "/(.+)",
       "dest": "app/index.js"
     }
