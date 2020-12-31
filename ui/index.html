@@ -1,18 +1,61 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Vercel Express and UI Webapp Example</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-</head>
-<body>
-    <h1>Vercel Express and UI Webapp Example</h1>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>etp-url.site</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/956330d85a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main id="app">
+      <div class="form__container">
+        <form @submit.prevent="createUrl()">
+          <h2>"short(ish)". urls.</h2>
+          <div class="form-group">
+            <label for="url">URL</label>
+            <input
+              v-model="url"
+              type="text"
+              name="url"
+              id="url"
+              placeholder="paste url here"
+            />
+          </div>
+          <div class="form-group">
+            <label for="slug">SLUG 👾</label>
+            <input
+              v-model="slug"
+              type="text"
+              name="slug"
+              id="slug"
+              placeholder="(optional) want a custom slug?"
+            />
+          </div>
+          <button type="submit" class="create-url">Create</button>
+          <br />
+          <div id="response" v-if="created">{{ created }}</div>
+        </form>
+      </div>
+    </main>
 
-    <div>&nbsp;</div>
-    <div>Try <a href="/api/">/api/</a> endpoint</div>
-
-    <div>&nbsp;</div>
-    <div>
-        Github: <a href="https://github.com/ngduc/vercel-express">https://github.com/ngduc/vercel-express</a>
-    </div>
-</body>
+    <!-- clipboard npm -->
+    <!-- TODO: <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script> -->
+    <!-- vue -->
+    <script src="app.js"></script>
+    <!-- css paint polyfill -->
+    <script src="https://unpkg.com/css-paint-polyfill"></script>
+    <!-- css-paint -->
+    <script>
+      CSS.paintWorklet.addModule("parallelowow.js");
+    </script>
+  </body>
 </html>
