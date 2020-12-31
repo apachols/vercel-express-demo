@@ -2,7 +2,7 @@
 
 Vercel Express and UI Webapp Example.
 
-Live Demo - https://vercel-express-3.ngduc.vercel.app
+Live Demo - https://vercel-express.apachols.vercel.app/
 
 ### Set up & Deploy with Vercel
 
@@ -24,12 +24,7 @@ $ vercel
 
 ### [vercel.json](./vercel.json)
 
-- Map API routes (/api/...) and static (UI) routes (/...).
-- Environment variables - examples:
-  - ```$ vercel secrets add my-mongodb-uri mongodb+srv://<user>:<password>@clusteridxxx.mongodb.net/<database-name>?retryWrites=true```
-  - add "env" to vercel.json ```{ "env": { "MONGODB_URI": "@my-mongodb-uri" }, ... }```
-
+- Map API routes (/api/...) and static (UI) routes (/...)
 
 ### Links
 - https://vercel.com/guides/using-express-with-vercel
-- https://medium.com/javascript-in-plain-english/create-and-deploy-a-node-js-express-app-for-free-f75d8796ba70
