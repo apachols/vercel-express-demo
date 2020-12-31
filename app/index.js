@@ -52,7 +52,7 @@ app.post('/url', async (req, res, next) => {
     if (error.message.startsWith('E11000')) {
       error.message = 'Slug in use. 🐛';
     }
-    next(error);
+    res.json(created);
   }
 });
 
