@@ -1,23 +1,23 @@
 var app = new Vue({
-  el: "#app",
+  el: '#app',
   data: {
-    url: "",
-    slug: "",
+    url: '',
+    slug: '',
     created: null,
-    newUrl: null,
+    newUrl: null
   },
   methods: {
     async createUrl() {
       console.log(this.url, this.slug);
-      const response = await fetch("/url", {
-        method: "POST",
+      const response = await fetch('/url', {
+        method: 'POST',
         headers: {
-          "content-type": "application/json",
+          'content-type': 'application/json'
         },
         body: JSON.stringify({
           url: this.url,
-          slug: this.slug,
-        }),
+          slug: this.slug
+        })
       });
       this.created = await response.json();
       if (this.created.slug) {
@@ -25,6 +25,6 @@ var app = new Vue({
         this.created = window.location.href + this.created.slug;
         this.newUrl = true;
       } else this.created = this.created.message;
-    },
-  },
+    }
+  }
 });

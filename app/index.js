@@ -9,7 +9,7 @@ urls.createIndex({ url: 1, slug: 1 }, { unique: true });
 const app = require('express')();
 
 app.get('/api', (req, res) => {
-  const path = `/api/item/hello-world/`;
+  const path = `/helllooooo-oo/`;
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   url: yup.string().trim().url().required()
 });
 
-app.post('/api/url', async (req, res, next) => {
+app.post('/url', async (req, res, next) => {
   let { slug, url } = req.body;
   try {
     if (!slug) {
@@ -56,7 +56,7 @@ app.post('/api/url', async (req, res, next) => {
   }
 });
 
-app.get('/api/:id', async (req, res) => {
+app.get('/:id', async (req, res) => {
   const { id: slug } = req.params;
   try {
     const url = await urls.findOne({ slug });
