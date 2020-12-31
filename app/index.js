@@ -27,37 +27,36 @@ const schema = yup.object().shape({
 });
 
 app.post('/url', async (req, res, next) => {
-  res.end('FUUUU');
-  // let { slug, url } = req.body;
-  // try {
-  //   if (!slug) {
-  //     await schema.validate({
-  //       url
-  //     });
-  //   } else {
-  //     await schema.validate({
-  //       slug,
-  //       url
-  //     });
-  //   }
+  let { slug, url } = req.body;
+  try {
+    if (!slug) {
+      await schema.validate({
+        url
+      });
+    } else {
+      await schema.validate({
+        slug,
+        url
+      });
+    }
 
-  //   if (!slug) {
-  //     slug = nanoid(7);
-  //   }
-  //   slug = slug.toLowerCase();
+    if (!slug) {
+      slug = nanoid(7);
+    }
+    slug = slug.toLowerCase();
 
-  //   const newUrl = {
-  //     url,
-  //     slug
-  //   };
-  //   const created = await urls.insert(newUrl);
-  //   res.json(created);
-  // } catch (error) {
-  //   if (error.message.startsWith('E11000')) {
-  //     error.message = 'Slug in use. 🐛';
-  //   }
-  //   res.json(created);
-  // }
+    const newUrl = {
+      url,
+      slug
+    };
+    const created = await urls.insert(newUrl);
+    res.json(created);
+  } catch (error) {
+    if (error.message.startsWith('E11000')) {
+      error.message = 'Slug in use. 🐛';
+    }
+    res.json(created);
+  }
 });
 
 app.get('/:id', async (req, res) => {
